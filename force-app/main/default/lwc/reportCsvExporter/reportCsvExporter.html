@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Dashboard Report CSV Exporter">
+        <div class="slds-p-around_medium slds-grid slds-grid_vertical">
+
+            <!-- Report selector -->
+            <lightning-combobox name="reportSelector" label="Select Report" value={selectedReportId}
+                options={reportOptions} onchange={handleReportChange} disabled={isLoading}>
+            </lightning-combobox>
+
+            <!-- Export button -->
+            <lightning-button label="Export CSV" variant="brand" onclick={handleExportCsv} class="slds-m-top_small"
+                style="width: fit-content;" disabled={isLoading}></lightning-button>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading..."></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>
